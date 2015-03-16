@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include "RootFinder.h"
 #include <cmath>
+#include <stdexcept>
 
 
 // This is an example of an exported variable
@@ -25,6 +26,10 @@ CRootFinder::CRootFinder()
 
 double CRootFinder::SquareRoot(double v)
 {
+	if (v < 0.0)
+	{
+		throw std::out_of_range("Can't do square roots of negatives");
+	}
 	double result = v;
 	double diff = v;
 	while (diff > result / 1000)
