@@ -35,7 +35,7 @@ double CRootFinder::SquareRoot(double v)
 	while (diff > result / 1000)
 	{
 		double oldResult = result;
-		result = result - (result*result - v) / (2 * result);
+		result = (result + v / result) / 2.0;
 		diff = abs(oldResult - result);
 	}
 	return result;
